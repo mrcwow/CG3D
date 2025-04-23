@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebGL CG3D lab2</title>
+    </head>
+    <body>
+        <div class="page">
+            <canvas width="570" height="570" id="my_Canvas"></canvas>
+            <div class="controls">
+                <div class="title-control">
+                    <h1>Панель управления фигурами</h1>
+                </div>
+                <div class="cube-control">
+                    <label>X Position Cube:</label>
+                    <input type="range" id="xPosCube" min="-1" max="1" step="0.1" value="0.4">
+                    <br>
+                    <label>Y Position Cube:</label>
+                    <input type="range" id="yPosCube" min="-1" max="1" step="0.1" value="0.3">
+                    <br>
+                    <label>Z Position Cube:</label>
+                    <input type="range" id="zPosCube" min="-1" max="1" step="0.1" value="0">
+                    <br>
+                    <label>X Scale Cube:</label>
+                    <input type="range" id="xScaleCube" min="0.1" max="2" step="0.1" value="1">
+                    <br>
+                    <label>Y Scale Cube:</label>
+                    <input type="range" id="yScaleCube" min="0.1" max="2" step="0.1" value="1">
+                    <br>
+                    <label>X Rotation Cube:</label>
+                    <input type="range" id="xRotateCube" min="-180" max="180" step="1" value="-10">
+                    <br>
+                    <label>Y Rotation Cube:</label>
+                    <input type="range" id="yRotateCube" min="-180" max="180" step="1" value="20">
+                    <br>
+                    <label>Z Rotation Cube:</label>
+                    <input type="range" id="zRotateCube" min="-180" max="180" step="1" value="0">
+                </div> 
+                <div class="pyramid-control">
+                    <label>X Position Pyramid:</label>
+                    <input type="range" id="xPosPyramid" min="-1" max="1" step="0.1" value="-0.3">
+                    <br>
+                    <label>Y Position Pyramid:</label>
+                    <input type="range" id="yPosPyramid" min="-1" max="1" step="0.1" value="-0.7">
+                    <br>
+                    <label>Z Position Pyramid:</label>
+                    <input type="range" id="zPosPyramid" min="-1" max="1" step="0.1" value="0">
+                    <br>
+                    <label>X Scale Pyramid:</label>
+                    <input type="range" id="xScalePyramid" min="0.1" max="2" step="0.1" value="1">
+                    <br>
+                    <label>Y Scale Pyramid:</label>
+                    <input type="range" id="yScalePyramid" min="0.1" max="2" step="0.1" value="1">
+                    <br>
+                    <label>X Rotation Pyramid:</label>
+                    <input type="range" id="xRotatePyramid" min="-180" max="180" step="1" value="0">
+                    <br>
+                    <label>Y Rotation Pyramid:</label>
+                    <input type="range" id="yRotatePyramid" min="-180" max="180" step="1" value="20">
+                    <br>
+                    <label>Z Rotation Pyramid:</label>
+                    <input type="range" id="zRotatePyramid" min="-180" max="180" step="1" value="0">
+                </div>
+            </div>
+            <div class="controls">
+                <div class="title-control">
+                    <h1>Панель управления сцены</h1>
+                </div>
+                <div class="projection-control">
+                    <div class="projection-type">
+                        <label>Projection Type:</label>
+                        <select id="projectionType">
+                            <option value="ortho">Orthographic</option>
+                            <option value="perspective">Perspective</option>
+                        </select>
+                    </div>
+                    <div class="perspective-controls">
+                        <label>FOV:</label>
+                        <input type="range" id="fov" min="0" max="180" step="1" value="45">
+                        <label>Near:</label>
+                        <input type="range" id="near" min="0.1" max="10" step="0.1" value="0.1">
+                        <label>Far:</label>
+                        <input type="range" id="far" min="1" max="200" step="1" value="100">
+                    </div>
+                </div>
+                <div class="lookat-control">
+                    <h3>Camera Position</h3>
+                    <label>X: <input type="range" id="eyeX" min="-15" max="15" step="0.1" value="0"></label>
+                    <label>Y: <input type="range" id="eyeY" min="-15" max="15" step="0.1" value="0"></label>
+                    <label>Z: <input type="range" id="eyeZ" min="-15" max="15" step="0.1" value="5"></label>
+                    <h3>Camera Target</h3>
+                    <label>X: <input type="range" id="centerX" min="-5" max="5" step="0.1" value="0"></label>
+                    <label>Y: <input type="range" id="centerY" min="-5" max="5" step="0.1" value="0"></label>
+                    <label>Z: <input type="range" id="centerZ" min="-5" max="5" step="0.1" value="0"></label>
+                    <h3>Up Vector</h3>
+                    <label>X: <input type="range" id="upX" min="-10" max="10" step="0.1" value="0"></label>
+                    <label>Y: <input type="range" id="upY" min="-10" max="10" step="0.1" value="1"></label>
+                    <label>Z: <input type="range" id="upZ" min="-10" max="10" step="0.1" value="0"></label>
+                </div>
+            </div>
+        </div>
+        <script src="gl-matrix.js"></script>
+        <script src="WebGLJavascript.js"></script>
+    </body>
+    <style>
+        .page {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .title-control, .projection-control, .lookat-control, .cube-control, .pyramid-control {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        
+        }  
+    </style>
+</html>
